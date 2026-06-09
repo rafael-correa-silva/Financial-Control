@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Control</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="css/assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<canvas id="dollar-canvas"></canvas>
+
+<div class="page-wrap">
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <p class="site-header__eyebrow"><span>💰</span> Controle Financeiro</p>
+      <h1 class="site-header__title">Seu dinheiro,<br><em>seu controle.</em></h1>
+      <p class="site-header__sub">Registre receitas e despesas. Tudo salvo no seu dispositivo.</p>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+
+      <!-- RESUMO -->
+      <section class="section" id="resumo">
+        <p class="section-label">Resumo financeiro</p>
+        <div class="cards-grid">
+          <div class="card card--saldo" id="card-saldo">
+            <div class="card__icon">💳</div>
+            <p class="card__label">Saldo atual</p>
+            <p class="card__value" id="saldo">R$ 0,00</p>
+          </div>
+          <div class="card card--receita" id="card-receitas">
+            <div class="card__icon">📈</div>
+            <p class="card__label">Receitas</p>
+            <p class="card__value" id="receitas">R$ 0,00</p>
+          </div>
+          <div class="card card--despesa" id="card-despesas">
+            <div class="card__icon">📉</div>
+            <p class="card__label">Despesas</p>
+            <p class="card__value" id="despesas">R$ 0,00</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- FORM -->
+      <section class="section" id="adicionar">
+        <p class="section-label">Nova transação</p>
+        <div class="form-card" id="form-card">
+          <form id="form-transacao" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="titulo">Título</label>
+                <input class="form-input" type="text" id="titulo" name="titulo"
+                  placeholder="Ex: Salário, Mercado…" autocomplete="off" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="valor">Valor (R$)</label>
+                <input class="form-input" type="number" id="valor" name="valor"
+                  placeholder="0,00" min="0.01" step="0.01" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="tipo">Tipo</label>
+                <select class="form-select" id="tipo" name="tipo" required>
+                  <option value="receita">📈 Receita</option>
+                  <option value="despesa">📉 Despesa</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="btn-add" type="button" id="btn-adicionar">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Adicionar
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- HISTÓRICO -->
+      <section class="section" id="historico">
+        <div class="historico-header">
+          <p class="section-label" style="margin-bottom:0">Histórico</p>
+          <button class="btn-limpar" id="btn-limpar">Limpar tudo</button>
+        </div>
+
+        <p class="historico__vazio" id="historico-vazio" style="display:none">
+          <strong>💸</strong>
+          Nenhuma transação ainda.<br>Adicione sua primeira acima.
+        </p>
+
+        <ul class="transacoes-lista" id="transacoes-lista"></ul>
+      </section>
+
+    </div><!-- /container -->
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Financial Control — Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</div><!-- /page-wrap -->
+
+<!-- TOASTS -->
+<div class="toast-wrap" id="toast-wrap"></div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
