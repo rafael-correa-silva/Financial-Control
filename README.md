@@ -8,7 +8,7 @@ Além das funcionalidades de controle financeiro, a aplicação conta com anima�
 
 ## Preview
 
-![Financial Control](assets/img-site.png)
+![Preview do Projeto](css/assets/img-site.png)
 
 ---
 
